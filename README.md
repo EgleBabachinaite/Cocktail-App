@@ -1,6 +1,8 @@
 # Cocktail App
 
+This is a Cocktail Recipe app.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+Bootstrap version 3.4.1
 
 ## Development server
 
