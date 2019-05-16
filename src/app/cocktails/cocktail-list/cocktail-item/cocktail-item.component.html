@@ -1,3 +1,16 @@
-<p>
-  cocktail-item works!
-</p>
+<a
+  href="#"
+  class="list-group-item clearfix"
+  (click)="onSelected()">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ cocktail.name }}</h4>
+    <p class="list-group-item-text">{{ cocktail.description }}</p>
+  </div>
+  <span class="pull-right">
+        <img
+          [src]="cocktail.imagePath"
+          alt="{{ cocktail.name }}"
+          class="img-responsive"
+          style="max-height: 50px;">
+      </span>
+</a>

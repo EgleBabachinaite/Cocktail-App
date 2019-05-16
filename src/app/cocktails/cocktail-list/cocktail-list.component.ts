@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Cocktail} from '../cocktail.model';
 
 @Component({
@@ -7,6 +7,7 @@ import {Cocktail} from '../cocktail.model';
   styleUrls: ['./cocktail-list.component.css']
 })
 export class CocktailListComponent implements OnInit {
+  @Output() cocktailWasSelected = new EventEmitter<Cocktail>();
   cocktails: Cocktail[] = [
     new Cocktail('A Test Cocktail', 'Testing a cocktail',
       'https://www.goodfreephotos.com/albums/food/delicious-cocktail-drink.jpg'),
@@ -17,6 +18,10 @@ export class CocktailListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onCocktailSelected(cocktail: Cocktail) {
+    this.cocktailWasSelected.emit(cocktail);
   }
 
 }

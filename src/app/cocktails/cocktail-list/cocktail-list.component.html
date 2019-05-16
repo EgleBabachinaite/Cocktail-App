@@ -6,23 +6,10 @@
 <hr>
 <div class="row">
   <div class="col-xs-12">
-    <a
-      href="#"
-      class="list-group-item clearfix"
-      *ngFor="let cocktail of cocktails">
-      <div class="pull-left">
-        <h4 class="list-group-item-heading">{{ cocktail.name }}</h4>
-        <p class="list-group-item-text">{{ cocktail.description }}</p>
-      </div>
-      <span class="pull-right">
-        <img
-          [src]="cocktail.imagePath"
-          alt="{{ cocktail.name }}"
-          class="img-responsive"
-          style="max-height: 50px;">
-      </span>
-    </a>
-    <app-cocktail-item></app-cocktail-item>
+    <app-cocktail-item
+      *ngFor="let cocktailEl of cocktails"
+      [cocktail]="cocktailEl"
+      (cocktailSelected)="onCocktailSelected(cocktailEl)"></app-cocktail-item>
   </div>
 </div>
 
