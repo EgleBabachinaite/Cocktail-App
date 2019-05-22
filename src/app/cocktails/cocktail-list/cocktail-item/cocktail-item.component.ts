@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Cocktail} from '../../cocktail.model';
+import {CocktailService} from '../../cocktail.service';
 
 @Component({
   selector: 'app-cocktail-item',
@@ -8,15 +9,15 @@ import {Cocktail} from '../../cocktail.model';
 })
 export class CocktailItemComponent implements OnInit {
   @Input() cocktail: Cocktail;
-  @Output() cocktailSelected = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private cocktailService: CocktailService) { }
 
   ngOnInit() {
   }
 
   onSelected() {
-    this.cocktailSelected.emit();
+    // the data we want to pass
+    this.cocktailService.cocktailSelected.emit(this.cocktail);
   }
 
 }

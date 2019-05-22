@@ -1,5 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Cocktail} from '../cocktail.model';
+import {CocktailService} from '../cocktail.service';
+
 
 @Component({
   selector: 'app-cocktail-list',
@@ -7,23 +9,14 @@ import {Cocktail} from '../cocktail.model';
   styleUrls: ['./cocktail-list.component.css']
 })
 export class CocktailListComponent implements OnInit {
-  @Output() cocktailWasSelected = new EventEmitter<Cocktail>();
-  cocktails: Cocktail[] = [
-    new Cocktail('A Test Cocktail', 'Testing a cocktail',
-      'https://www.goodfreephotos.com/albums/food/delicious-cocktail-drink.jpg'),
-    new Cocktail('A Jasmine Cocktail', 'Very tasty cocktail',
-      'https://cdn.liquor.com/wp-content/uploads/2016/09/12154233/jasmine-720x720-recipe.jpg')
-  ];
+  cocktails: Cocktail[];
 
-  constructor() { }
+  constructor(private cocktailService: CocktailService) {
+}
 
   ngOnInit() {
+    this.cocktails = this.cocktailService.getCocktails();
   }
-
-  onCocktailSelected(cocktail: Cocktail) {
-    this.cocktailWasSelected.emit(cocktail);
-  }
-
 }
 
 

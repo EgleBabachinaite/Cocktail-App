@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Cocktail} from '../cocktail.model';
+import {CocktailService} from '../cocktail.service';
 
 @Component({
   selector: 'app-cocktail-detail',
@@ -9,9 +10,13 @@ import {Cocktail} from '../cocktail.model';
 export class CocktailDetailComponent implements OnInit {
   @Input() cocktail: Cocktail;
 
-  constructor() { }
+  constructor(private cocktailService: CocktailService) { }
 
   ngOnInit() {
+  }
+
+  onAddToShoppingList() {
+    this.cocktailService.addIngredientsToShoppingList(this.cocktail.ingredients);
   }
 
 }
