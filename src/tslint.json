@@ -2,6 +2,7 @@
   "extends": "../tslint.json",
   "rules": {
     "object-literal-shorthand": false,
+    "object-string-literals": true,
     "directive-selector": [
       true,
       "attribute",

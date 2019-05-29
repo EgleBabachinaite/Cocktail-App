@@ -3,11 +3,6 @@
     <app-cocktail-list></app-cocktail-list>
   </div>
   <div class="col-md-7">
-    <app-cocktail-detail
-      *ngIf="selectedCocktail; else infoText"
-      [cocktail]="selectedCocktail"></app-cocktail-detail>
-    <ng-template #infoText>
-      <p>Please select a Cocktail!</p>
-    </ng-template>
+   <router-outlet></router-outlet>
   </div>
 </div>

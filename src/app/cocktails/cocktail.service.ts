@@ -36,6 +36,10 @@ export class CocktailService {
     return this.cocktails.slice();
   }
 
+  getCocktail(index: number) {
+    return this.cocktails[index];
+  }
+
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
   }

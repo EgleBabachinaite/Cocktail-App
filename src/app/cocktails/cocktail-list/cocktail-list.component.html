@@ -1,14 +1,15 @@
 <div class="row">
   <div class="col-xs-12">
-    <button class="btn btn-success">New Cocktail</button>
+    <button class="btn btn-success" (click)="onNewCocktail()">New Cocktail</button>
   </div>
 </div>
 <hr>
 <div class="row">
   <div class="col-xs-12">
     <app-cocktail-item
-      *ngFor="let cocktailEl of cocktails"
-      [cocktail]="cocktailEl"></app-cocktail-item>
+      *ngFor="let cocktailEl of cocktails; let i = index"
+      [cocktail]="cocktailEl"
+      [index]="i"></app-cocktail-item>
   </div>
 </div>
 
