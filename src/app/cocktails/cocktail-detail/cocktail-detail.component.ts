@@ -33,4 +33,9 @@ export class CocktailDetailComponent implements OnInit {
   onEditCocktail() {
     this.router.navigate(['edit'], {relativeTo: this.route});
   }
+
+  onDeleteCocktail() {
+    this.cocktailService.deleteCocktail(this.id);
+    this.router.navigate(['/cocktails']);
+  }
 }

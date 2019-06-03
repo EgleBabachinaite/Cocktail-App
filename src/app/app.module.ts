@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { CocktailsComponent } from './cocktails/cocktails.component';
 import { CocktailListComponent } from './cocktails/cocktail-list/cocktail-list.component';
@@ -15,6 +15,7 @@ import {ShoppingListService} from './shopping-list/shopping-list.service';
 import {AppRoutingModule} from './app-routing.module';
 import { CocktailStartComponent } from './cocktails/cocktail-start/cocktail-start.component';
 import { CocktailEditComponent } from './cocktails/cocktail-edit/cocktail-edit.component';
+import {CocktailService} from './cocktails/cocktail.service';
 
 @NgModule({
   declarations: [
@@ -33,9 +34,10 @@ import { CocktailEditComponent } from './cocktails/cocktail-edit/cocktail-edit.c
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, CocktailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

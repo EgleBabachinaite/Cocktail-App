@@ -3,6 +3,7 @@ import {Ingredient} from '../shared/ingredient.model';
 
 export class ShoppingListService {
   ingredientsChanged = new Subject<Ingredient[]>();
+  startedEditing = new Subject<number>();
   private ingredients: Ingredient[] = [
     new Ingredient('Gin', 1.5),
     new Ingredient('Campari', 0.25)
@@ -10,6 +11,10 @@ export class ShoppingListService {
 
   getIngredients() {
     return this.ingredients.slice();
+  }
+
+  getIngredient(index: number) {
+    return this.ingredients[index];
   }
 
   addIngredient(ingredient: Ingredient) {
@@ -25,6 +30,16 @@ export class ShoppingListService {
     // turning an array of elements into a list of elements (using spread operator)
     this.ingredients.push(...ingredients);
     // emitting that ingredients changed and passing a copy
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
+
+  updateIngredient(index: number, newIngredient: Ingredient) {
+    this.ingredients[index] = newIngredient;
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
+
+  deleteIngredient(index: number) {
+    this.ingredients.splice(index, 1);
     this.ingredientsChanged.next(this.ingredients.slice());
   }
 }
